@@ -8,13 +8,13 @@ public:
         cin.tie(0);
         cout.tie(0);    
         
-        sort(nums.begin(),nums.end());        
+        unordered_set<int> s;
         
-        for(int i =1;i<nums.size();i++) {
-            if(nums[i] == nums[i-1]) return true;
+        for(int i=0;i< nums.size();i++) {
             
+            if(s.insert(nums[i]).second == false ) return true;  // already exists, 1 inserted succ , false not succ
         }
-        return false ;
+        return false;
         
         
         
