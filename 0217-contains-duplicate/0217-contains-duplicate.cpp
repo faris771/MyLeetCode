@@ -1,24 +1,24 @@
 class Solution {
 public:
+    
+    
     bool containsDuplicate(vector<int>& nums) {
         
-        int size =  nums.size();
-        set<int> s;
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);    
         
-        for(int i =0 ;i<nums.size();i++) {
-            
-            s.insert(nums[i]);
+        sort(nums.begin(),nums.end());        
+        
+        for(int i =1;i<nums.size();i++) {
+            if(nums[i] == nums[i-1]) return true;
             
         }
+        return false ;
         
-        if(s.size() == size){
-            // cout << "true" << endl;
-            return false;
-            
-        }else{
-            // cout << "false" << endl;
-            return true;
-        }
+        
+        
+        
         
         
     }
