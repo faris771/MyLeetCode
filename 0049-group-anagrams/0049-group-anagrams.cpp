@@ -1,14 +1,23 @@
+#define pb push_back
+
 class Solution {
 public:
+    
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
         
-        unordered_map<string,vector<string> > mp;
+        map< vector<int>,vector<string> > mp;
         
-        string original;
         for(auto x : strs) {
-            original = x;
-            sort(x.begin(), x.end());
-            mp[x].push_back(original);
+            vector<int> a (26) ;
+            for(auto c: x ){
+                a[c - 'a']++;
+                
+            }
+            
+            mp[a].pb(x);
+           
+            
+            
             
         }
         
