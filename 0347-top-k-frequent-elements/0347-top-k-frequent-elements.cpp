@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define pb push_back
 
 class Solution {
 public:
@@ -6,44 +7,42 @@ public:
     
         
         unordered_map<int,int> mp;
-        for(int i = 0; i<nums.size();i++) {
-            
-            mp[nums[i]] ++;
-                
+        for(int i = 0; i<nums.size();i++) {            
         
+            mp[nums[i]] ++;
         
         }
-        int cnt =0 ;    
-            
-        priority_queue<pair<int,int>> q;
-    
+        
+        
+        vector<vector<int>> v(nums.size() + 1);
+        
         for(auto x : mp) {
             
-            q.push({x.second,x.first});
-            
+            v[x.second].pb(x.first);
             
         }
-        
-        vector<int> ans;
 
-        for(int i=0;i<k;i++) {
-            // cout << q.top();
-            ans.push_back(q.top().second);
-            q.pop();
+        vector<int> ans;
+        
+        
+        for(int i =nums.size();i>=0;i--) {
+            if(ans.size() == k){
+                return ans;
+            }
             
+            for(int num : v[i]) {
+        
+                ans.pb(num);
             
+            }
             
         }
         
         
         
-        
-        
-        
-        
-        return ans;
+    return ans;
     }
-        
+    
         
         
         
