@@ -5,19 +5,15 @@ public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
     
         
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(int i = 0; i<nums.size();i++) {
-            // if(mp.find(nums[i]) != mp.end()){
             
             mp[nums[i]] ++;
                 
-            // } 
-            // else
-                // map[nums[i]] =1;
+        
         
         }
         int cnt =0 ;    
-        // vector<pair<int,int> >
             
         priority_queue<pair<int,int>> q;
     
