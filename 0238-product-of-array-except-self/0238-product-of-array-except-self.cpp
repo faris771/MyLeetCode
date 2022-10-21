@@ -3,25 +3,21 @@ public:
     vector<int> productExceptSelf(vector<int>& nums) {
         
         vector<int> ans(nums.size());
-        vector<int> pre(nums.size());
-        vector<int> post(nums.size());
         
-        pre[0] =1 ;
-        post[nums.size()-1] = 1;
+        ans[0] =1 ;
+        
         
         for(int i =1 ; i<nums.size();i++) {
-            pre[i] = pre[i-1]*nums[i-1];
-            
-            
-            
+            ans[i] = ans[i-1]*nums[i-1];
+                
         }
-        ans[nums.size()-1] = pre[nums.size()-1] * post[nums.size()-1];
         
-        for(int i =nums.size() -2  ; i>=0;i--) {
-            post[i] = post[i+1] * nums[i+1];;
-            ans[i] = pre[i] * post[i];
+        int pdct = 1;
         
-            
+        for(int i =nums.size() - 1 ; i>= 0 ;i--) {
+                
+            ans[i] = ans[i]*pdct;
+            pdct*=nums[i];
         }
         
         
