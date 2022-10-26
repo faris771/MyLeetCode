@@ -9,11 +9,11 @@ public:
         
         while(p1 < p2 ) {
             
-            while(!iswalnum(s[p1])){
+            while(!isalnum(s[p1])){
                 p1++;
                 if(p1 >= s.length() ) return true;
             }
-            while(!iswalnum(s[p2])){
+            while(!isalnum(s[p2])){
                 p2--;
                 if(p2 < 0 ) return true;
 
