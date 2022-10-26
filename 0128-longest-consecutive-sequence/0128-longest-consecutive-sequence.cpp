@@ -9,45 +9,21 @@ public:
         if(nums.size() == 0 )
             return 0;
         
-        
-        map<int,int> mp;
-        for(int x : nums) {
-            mp[x] = 1;
+        unordered_set<int> st(nums.begin(),nums.end());
+        int max = 1;
+        for(auto x : st) {
+            if(!st.count(x-1)){
+                int tmp= 1;
+                while(st.count(tmp+x)){
+                    tmp++;
+                }
+                if(tmp > max) max = tmp;
+                
+            }
+            
             
         }
         
-        int i =0 ;
-        int prevK;
-        int cnt = 1;
-        int maxm = 1;
-        
-        prioq<int> pq;
-        
-        for(auto kv : mp) {
-            if(i == 0) {
-                prevK = kv.first;
-                i++;
-                continue;
-            
-            }
-            if(kv.first - prevK == 1)
-                cnt++;
-            else{
-               
-                cnt = 1;
-            }
-            
-             if(cnt > maxm){
-                    maxm =cnt;
-            }
-            
-            prevK = kv.first;
-            
-            i++;
-            
-        }
-        
-        return maxm;
-        
+        return max;
     }
 };
