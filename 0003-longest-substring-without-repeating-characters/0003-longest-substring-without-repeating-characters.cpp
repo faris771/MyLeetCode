@@ -4,22 +4,22 @@ public:
         if(s.length() == 0) return 0;
         
         
-        unordered_set<char > st;
+        unordered_map<char, int > mp;
         
         int l = 0; int r = 0;
         int maxS = 1;
         
         
         while(r < s.length()) {
-            while (st.count(s[r])) {
+            while (mp[s[r]] != 0) {
 
-                st.erase(s[l]);
+                mp[s[l]] --;
                 
                 l++;
                 
                 
             }
-            st.insert(s[r]);
+            mp[s[r]]++;
             maxS = max(maxS, r-l+1);
             
             r++;
