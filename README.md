@@ -1,5 +1,12 @@
 # LeetCode
 Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
 
+* LeetCode <a href = "https://leetcode.com/abufarha/"><img src = "https://img.shields.io/badge/LeetCode-abufarha-orange" height = 19></a>
 
-## [![KnlnKS's LeetCode stats](https://leetcode-stats-six.vercel.app/api?username=abufarha&theme=midnight)](https://github.com/KnlnKS/leetcode-stats)
+
+***
+ ![LeetCode Stats](https://leetcode.card.workers.dev/abufarha?theme=dark&font=baloo&extension=activity)
+  
+
+
+ 
