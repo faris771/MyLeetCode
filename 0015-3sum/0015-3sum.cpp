@@ -7,7 +7,7 @@ public:
         // unordered_set<int> st;
         
 
-        for(int i =0; i<nums.size()-2; i++ ) {
+        for(int i =0; i<nums.size()-2; i++ ) { // we want to choose 3, so we don't get out of bound
             int target = -nums[i];
             if(i> 0 && nums[i] == nums[i-1])
                 continue;
@@ -24,18 +24,15 @@ public:
                     ans.push_back(tmp);
 
                     l++;
-                    while(nums[l] == nums[l-1]  && l < r)
+                    while(nums[l] == nums[l-1]  && l < r)// u either inc l or dec r, but make sure that  l - assume it' used-
+                           // not already used previously 
                         l ++;
                 }
 
             }        
-            out:;
 
 
         }
-        // for(auto x : ans_set){
-        //     ans.push_back(x);
-        // }
         return ans;
     }
 };
