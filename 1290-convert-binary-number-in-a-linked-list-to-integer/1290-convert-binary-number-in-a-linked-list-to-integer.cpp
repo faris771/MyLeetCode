@@ -12,24 +12,17 @@ class Solution {
 public:
     int getDecimalValue(ListNode* head) {
      
-        vector<int> v;
+        int ans = 0;
         
         while(head  != nullptr){
+            ans *= 2;
+            ans += head -> val;
             
-            v.push_back(head->val);
             head = head->next;
         
         } 
         
-        int ans =  0;
-        
-        //
-        for(int i = v.size()-1 ;i>=0;i--) {
-            
-            ans += v[i]* pow(2,(v.size()-1 - i));
-            
-            
-        }
+      
         
         return ans;
     }
