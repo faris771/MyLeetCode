@@ -10,13 +10,13 @@ class Solution:
     
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
         
-        def dfs(node):
-            if not node:
-                return 
+        def dfs(node1,node2):
+            if not node1:
+                return None 
             
-            elif target.val ==  node.val :
-                return node
+            elif target.val ==  node1.val :
+                return node2
             
-            return dfs(node.left) or dfs(node.right) 
+            return dfs(node1.left,node2.left) or dfs(node1.right,node2.right ) 
         
-        return dfs(cloned)
+        return dfs(original,cloned)
