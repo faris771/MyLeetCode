@@ -4,26 +4,36 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
         
-        answerTree = TreeNode()
-        currentNode = answerTree
-        
-        
+        sortedNodes = []
         
         def dfs(root):
             if not root:
                 return None
             
             dfs(root.left)
-            nonlocal currentNode
-            root.left= None
-            currentNode.right = root
-            currentNode = currentNode.right
+            
+            sortedNodes.append(root)
             
             dfs(root.right)
             
         dfs(root)
-        return answerTree.right
+        
+        resTree = TreeNode()
+        tmpTree = resTree
+        
+        
+        for i in range(len(sortedNodes ) -1 ):
+            sortedNodes[i].left = None
+            sortedNodes[i].right = sortedNodes[i+1]
+            
+        sortedNodes[len(sortedNodes)-1].left = None
+        sortedNodes[len(sortedNodes)-1].right = None
+        
+        return sortedNodes[0]
+            
+        return resTree.right
         
