@@ -1,34 +1,38 @@
 class Solution {
 public:
     
-    
-    bool dfs(int n, vector<vector<int>>& adj, int source, int destination,vector<bool> &visited){
+    bool bfs( vector<vector<int>>& adj, int src, int destination,vector<bool>&visited){
+        queue<int> q;
+        q.push(src);
         
-        if(source == destination)
-            return true;
-        if(visited[source])
-            return false;
-        
-        visited[source] = 1;
-        
-        
-        for(int x : adj[source]){
-            
-            if( dfs(n,adj,x,destination,visited))
+        while(!q.empty()){
+            int front = q.front();
+            q.pop();          
+            if(front == destination)
                 return true;
+            
+            if(!visited[front]){
+                
+                visited[front] = 1;
+                for(int iter : adj[front]){
+                    
+                    q.push(iter);
+                    
+                }
+                
+                
+                
+            }
+            
+            
             
         }
         
-        
-        
-        
         return false;
-        
-        
     }
     
     
-    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+    bool validPath(int n, vector<vector<int>>& edges, int src, int destination) {
         
         vector<vector<int>> adj(n);
         
@@ -39,7 +43,7 @@ public:
 
         vector<bool> visited(n,false);
         
-        return dfs(n,adj,source,destination,visited);
+        return bfs(adj,src,destination,visited);
         
     }
 };
