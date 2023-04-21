@@ -22,44 +22,73 @@ public:
         return 0;
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     bool bfs( vector<vector<int>>& adj, int src, int destination,vector<bool>&visited){
         queue<int> q;
         q.push(src);
         
         while(!q.empty()){
-            int front = q.front();
-            q.pop();          
-            if(front == destination)
-                return true;
             
-            if(!visited[front]){
+            int front = q.front();
+            q.pop();
+            if(front == destination) return 1;
+            
+            
+            for (int x : adj[front]){
+                if(!visited[x])
+                    q.push(x);
                 
-                visited[front] = 1;
-                for(int iter : adj[front]){
-                    
-                    q.push(iter);
-                    
-                }
-                
-                
+                visited[x]=1;
                 
             }
             
             
             
+            
+            
+            
         }
         
-        return false;
+        return 0;
+    
     }
+    
+    
+
+    
+    
+    
+    
+    
+//     bool bfs( vector<vector<int>>& adj, int src, int destination,vector<bool>&visited){
+//         queue<int> q;
+//         q.push(src);
+        
+//         while(!q.empty()){
+//             int front = q.front();
+//             q.pop();          
+//             if(front == destination)
+//                 return true;
+            
+//             if(!visited[front]){
+                
+//                 visited[front] = 1;
+//                 for(int iter : adj[front]){
+                    
+//                     q.push(iter);
+                    
+//                 }
+                
+                
+                
+//             }
+            
+            
+            
+//         }
+        
+//         return false;
+//     }
     
     
     bool validPath(int n, vector<vector<int>>& edges, int src, int destination) {
@@ -73,7 +102,7 @@ public:
 
         vector<bool> visited(n,false);
         
-        return dfs(adj,src,destination,visited);
+        return bfs(adj,src,destination,visited);
         
     }
 };
