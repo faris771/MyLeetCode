@@ -8,7 +8,7 @@ public:
         }
         if(visited[src])
             return 0;
-        
+        visited[src] = 1;
         
         for(int x :  adj[src]){
         
@@ -73,7 +73,7 @@ public:
 
         vector<bool> visited(n,false);
         
-        return bfs(adj,src,destination,visited);
+        return dfs(adj,src,destination,visited);
         
     }
 };
