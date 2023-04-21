@@ -8,6 +8,22 @@ class Solution:
         
         visited = [False] * n
         
+        
+        def bfs(src):
+            q = collections.deque([source])
+            
+            while q:
+                front = q.popleft()
+                if front == destination:
+                    return True
+                for x in adj[front]:
+                    if not visited[x] :
+                        q.append(x)
+                    visited[x] = True
+            
+            return False
+        
+        
         def dfs(src):
             if src == destination:
                 return True
@@ -21,5 +37,5 @@ class Solution:
             return False
         
         
-        return dfs(source)
+        return bfs(source)
         
