@@ -1,6 +1,36 @@
 class Solution {
 public:
     
+    bool dfs(vector<vector<int>>& adj, int src, int destination,vector<bool>&visited){
+        
+        if(src == destination){
+            return 1;
+        }
+        if(visited[src])
+            return 0;
+        
+        
+        for(int x :  adj[src]){
+        
+            if(dfs(adj, x,destination, visited))
+                return 1;
+            
+        }
+        
+        
+        
+        return 0;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     bool bfs( vector<vector<int>>& adj, int src, int destination,vector<bool>&visited){
         queue<int> q;
         q.push(src);
