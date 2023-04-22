@@ -16,11 +16,11 @@ public:
         if(src == end){
             ans.push_back(tmpPath);
         }
-        else{
-            for(int x: graph[src]){
-                dfs(graph,tmpPath,x,graph.size()-1);
-            }
+        
+        for(int x: graph[src]){
+            dfs(graph,tmpPath,x,graph.size()-1);
         }
+
         
         tmpPath.pop_back();
         
