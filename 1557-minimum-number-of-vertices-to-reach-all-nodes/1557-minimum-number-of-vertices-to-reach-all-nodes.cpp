@@ -5,7 +5,7 @@ public:
     
         vector<bool> freq(n,0);
         
-        for(auto x : edges){
+        for(vector<int> x : edges){
             
             freq[x[1]] = 1;
             
