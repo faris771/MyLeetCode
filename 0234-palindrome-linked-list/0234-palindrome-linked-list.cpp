@@ -44,32 +44,61 @@ public:
     
     
     bool isPalindrome(ListNode* head) {
-        ListNode* midOfList = head;
-        int listSize = getListSize(head);
-        
-        if(listSize == 1)
-            return 1;
-        
-        ListNode* pre = NULL;
-        for(int i =0;i< listSize/2; i++){
-            pre = midOfList;
-            midOfList = midOfList->next;
-        }
-        
-        
-        
       
         
-        if (listSize%2 == 1){
+        // find middle node 
+        ListNode* slow = head, *fast = head;
+        
+        while (fast &&fast->next){
             
-            pre->next =midOfList->next;
-            midOfList = midOfList->next;
+            fast= fast->next->next;
+            slow  = slow ->next;
             
         }
         
-        return calc(NULL,head, midOfList);
         
-        return 1;
+        // reverse right hand side 
+                
         
-    }
+        
+        ListNode* tmp = nullptr;
+        ListNode* prev = nullptr;
+        
+        
+        
+        while  (slow){
+            
+            tmp = slow -> next;
+            slow-> next = prev;
+            prev = slow;
+            slow = tmp;
+            
+        }
+            // check if palindrome 
+            
+            
+            ListNode* rightPtr =  prev;
+            ListNode* leftPtr =  head;
+            
+            
+            
+            while (rightPtr){
+                if(leftPtr->val != rightPtr->val)
+                    return 0;
+                
+                leftPtr = leftPtr->next;
+                rightPtr = rightPtr->next;
+                
+                
+                
+            }
+            
+            
+
+            return 1;
+            
+        }
+        
+            
+    
 };
