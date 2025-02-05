@@ -6,7 +6,7 @@ public:
         stack<char> open;
         stack<char> close;
 
-        if(s.length() <=1 )
+        if(s.length() %2 == 1  ) // odd string always false 
             return false;
 
         for(char c : s){
