@@ -24,18 +24,21 @@ public:
                 if(nums[l] + nums[r] == target){
                     ans.push_back({nums[i],nums[l],nums[r]});
 
-                    while(l<r && nums[l+1] == nums[l]){
+                    l++;
+                    while(l<r && nums[l] == nums[l-1]){
                         l++;
 
                     }
-                    while(l<r && nums[r-1] == nums[r]){
-                        r--;
+                    // while(l<r && nums[r-1] == nums[r]){
+                    //     r--;
                         
-                    }
+                    // }
 
-                    l++;
-                    r--;
+
+                    // l++;
+                    // r--;
                 
+
                 }
                 else if (nums[l] + nums[r] < target){
                     l++;
