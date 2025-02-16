@@ -1,31 +1,29 @@
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
+    int binary_search(vector<int>& nums, int target, int l, int r ) {
         
-        int n = nums.size();
-        int l =0, r = n- 1, mid = n/2;
 
-        if(n == 1){
-            return target == nums[0]? 0 : -1;
+        if(l>r)
+            return -1;
+
+        int m = l + (r-l)/2;
+
+        if(nums[m] == target)
+            return m;
+        if( target> nums[m]){
+            return binary_search( nums,  target,  m+1,  r ) ;
         }
-        while(l<=r){
-
-            mid = (r+l) /2;
-            
-            if(nums[mid]== target){
-                return  mid;
-            }
-
-            if(target > nums[mid] ){
-                l = mid +1;
-            }
-            else{
-                r = mid -1;
-            }
+        else{
+            return binary_search(nums,  target,  l,  m-1 );
 
         }
 
-        return -1;
 
+        
     }
+
+    int search(vector<int>&nums, int target) {
+        return binary_search(nums,target,0,nums.size() -1);
+    }
+
 };
