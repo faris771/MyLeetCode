@@ -2,60 +2,30 @@ class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
         
+        int maxElement = *max_element(piles.begin(),piles.end());
+        
+        return binarySearch(piles,1,maxElement,h);
 
-        sort(piles.begin(), piles.end()); // nlogn
-
-        int n = piles.size();
-
-        int k = -1;
-
-
-
-        for(int i=0;i<n;i++){
-            
-            k = piles[i];
-
-            if(getHours(piles,k) <= h){
-
-                if (i == 0 ){
-                    return binarySearch(piles,1,piles[i],h,k);
-                }
-                else{
-
-                    return binarySearch(piles, piles[i-1], piles[i],h,k);    
-                }
-            }
-            
-
-        }
-
-        return k;
     }
 
     long getHours(vector<int>& piles, long k){
         
-        cout << k << endl;
         long long  hours = 0;
         for(long long num : piles){
-            // cout << "num: " << num << endl;
             hours += ceil((1.0*num)/k);
-            // cout << "hours " << hours << endl; 
         }
 
-        // cout << k <<" " <<  hours << endl;
         return hours;
     }
 
-    int binarySearch(vector<int>& piles, long l, long r,int h, long k){
+    int binarySearch(vector<int>& piles, long l, long r,int h){
 
         /*
         returns minimum k in range 
         */
 
-        long minK = k;
-        
-
-
+                
+        long minK = r;
         while (l<= r){
             cout << "[BS] K: " <<minK << endl; 
 
