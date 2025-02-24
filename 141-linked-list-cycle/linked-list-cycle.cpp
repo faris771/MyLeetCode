@@ -23,10 +23,7 @@ public:
             slow = slow->next;
 
              if(fast == slow){
-                cout << "EQ: " <<fast->val  << " " << slow->val <<endl;
-                
                 return 1;
-
             }
 
         }
