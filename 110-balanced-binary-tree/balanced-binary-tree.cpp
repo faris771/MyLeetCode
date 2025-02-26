@@ -20,8 +20,8 @@ public:
         int rightDepth = maxDepth(root->right);
         
 
-        return isBalanced(root->left) && isBalanced(root->right) && \
-            (abs(leftDepth - rightDepth) <=1);
+        return (abs(leftDepth - rightDepth) <=1) &&\
+        isBalanced(root->left) && isBalanced(root->right);
 
     }
 
