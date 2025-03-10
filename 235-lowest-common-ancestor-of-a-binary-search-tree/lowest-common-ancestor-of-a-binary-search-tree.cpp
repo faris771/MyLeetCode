@@ -15,8 +15,6 @@ public:
         if(!root || !p || !q){
             return nullptr;
         }
-        if(root == q || root ==p)
-            return root;
         if(min(p->val,q->val)  > root->val){
             return lowestCommonAncestor(root->right,  p, q);
         }
